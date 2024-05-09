@@ -1,0 +1,61 @@
+<!-- AIzaSyCiVLs8iPVVqXSvCtYF8uaiuFoPbmdkn5w -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build With AI - Gemini</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="menu">
+      <h1> Gemini
+      </h1>
+
+        <input id="prompt" placeholder="Write your prompt here">
+        <input id="submit" type="submit" value="Generate">
+
+        <div id="results"></div>
+    </div>
+    
+    <script type="importmap">
+        {
+          "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+        }
+      </script>
+      <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+  
+        // Fetch your API_KEY
+        const API_KEY = "AIzaSyCiVLs8iPVVqXSvCtYF8uaiuFoPbmdkn5w"
+  
+  ;
+  
+        // Access your API key (see "Set up your API key" above)
+        const genAI = new GoogleGenerativeAI(API_KEY);
+  
+        // ...
+        const prompt = document.getElementById("prompt");
+        const submit = document.getElementById("submit");
+        const results = document.getElementById("results");
+        async function run() {
+            // For text-only input, use the gemini-pro model
+            const model = genAI.getGenerativeModel({ model: "gemini-pro"})
+
+            const result = await model.generateContent(prompt.value);
+            const response = await result.response;
+            const text = response.text();
+            results.innerHTML = text;
+        };
+
+        submit.addEventListener('click', run);
+
+  
+        // ...
+      </script>  
+</body>
+</html>
