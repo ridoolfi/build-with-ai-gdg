@@ -16,8 +16,8 @@
 
         <input id="prompt" placeholder="Write your prompt here">
         <input id="submit" type="submit" value="Generate">
-
         <div id="results"></div>
+        
     </div>
     
     <script type="importmap">
@@ -31,7 +31,7 @@
         import { GoogleGenerativeAI } from "@google/generative-ai";
   
         // Fetch your API_KEY
-        const API_KEY = "SUA_KEY
+        const API_KEY = "SUA_KEY"
   
   ;
   
@@ -39,6 +39,7 @@
         const genAI = new GoogleGenerativeAI(API_KEY);
   
         // ...
+        const menu = document.getElementsByClassName("menu")
         const prompt = document.getElementById("prompt");
         const submit = document.getElementById("submit");
         const results = document.getElementById("results");
@@ -49,7 +50,9 @@
             const result = await model.generateContent(prompt.value);
             const response = await result.response;
             const text = response.text();
-            results.innerHTML = text;
+            results.innerHTML = 'RESULTADO: <br>' + text;
+            prompt.value = "";
+            menu.style.height = 'auto'
         };
 
         submit.addEventListener('click', run);
