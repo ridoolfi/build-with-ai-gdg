@@ -1,3 +1,7 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
 .menu{
     display: flex;
     flex-direction: column;
@@ -13,13 +17,14 @@
     border-width: 5px;
 }
 #prompt{
-    width: 50%;
+    width: auto;
     height:50px;
     border-color: blUE;
     border-style: solid;
     border-radius: 10rem;
     text-align: center;
-    border-width: 3px
+    border-width: 3px;
+    font-size: 20px;
 }
 
 #submit{
@@ -49,5 +54,13 @@ body{
     padding: 0%;
 }
 
+#results{
+    margin-top: 1rem;
+    color: blue;
+    font-size: 20px;
+    width: 80%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
 
+}
 
